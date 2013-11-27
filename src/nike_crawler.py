@@ -85,7 +85,7 @@ def main():
 						if args.verbose: print "Unicode characters in tweet, skipping..."
 						continue
 			try:
-				dContent = json.loads(serviceCall(url=search_url%(dContent['search_metadata']['next_results']), headers=headers, error_message="Search Failed"))	
+				dContent = json.loads(serviceCall(url=search_url%(dContent['search_metadata']['next_results'])+"&since_id=%s"%(max_id), headers=headers, error_message="Search Failed"))	
 			except KeyError:
 				break
 
