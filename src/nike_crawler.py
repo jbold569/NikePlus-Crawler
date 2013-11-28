@@ -29,8 +29,8 @@ def authenticate(consumer_key, consumer_secret):
 	dContent = json.loads(serviceCall(auth_url, data, headers, "Authentication failed"))
 	return dContent['access_token']
 
-def main():
-	args = parser.parse_args()
+def main(args):
+	
 	max_id = "0"
 	try:
 		with  open("./.crawler_data/nikeplus/max_id",'r') as id_file:
@@ -96,4 +96,4 @@ if __name__ == "__main__":
 	parser.add_argument("-o", "--output", help="Crawler output directory", default="./")
 	parser.add_argument("-v", "--verbose", help="Enable debug information", action="store_true")
 
-	main()
+	main(args = parser.parse_args())
